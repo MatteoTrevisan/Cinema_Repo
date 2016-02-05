@@ -1,12 +1,5 @@
 package com.matteo.cinema.model;
 
-import java.io.BufferedReader;
-import java.io.FileNotFoundException;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
 public class Film {
 
 	private int id;
@@ -38,11 +31,11 @@ public class Film {
 		this.title = title;
 	}
 
-	public String getEuro() {
+	public String getPrice() {
 		return price;
 	}
 
-	public void setEuro(String price) {
+	public void setPrice(String price) {
 		this.price = price;
 	}
 

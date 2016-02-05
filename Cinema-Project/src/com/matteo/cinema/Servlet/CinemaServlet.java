@@ -25,14 +25,6 @@ import com.matteo.cinema.model.Film;
 public class CinemaServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String path = null;
-
-	// @Override
-	// public void init() throws ServletException {
-	// super.init();
-	// if (this.getInitParameter("cinemaPath") != null){
-	// this.path = this.getInitParameter("cinemaPath");
-	// }
-	// }
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse
 	 *      response)
@@ -41,11 +33,14 @@ public class CinemaServlet extends HttpServlet {
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		response.setContentType("text/html");
+		
+		// definition of txt path
 		String filename = "/Cinema_Persistence.txt";
+		
 		ArrayList<Film> filmList = new ArrayList();
-		FilmReader filmReader = new FilmReader();
-//		List<Film> filmList = null;
 		ServletContext context = getServletContext();
+		
+		// IputStream is necessary for the text reading (through InputStreamReader)
 		InputStream is = context.getResourceAsStream(filename);
 		if (is != null) {
 			InputStreamReader isr = new InputStreamReader(is);

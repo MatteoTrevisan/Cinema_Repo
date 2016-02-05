@@ -28,7 +28,11 @@ public class CinemaFileReader {
 			}
 
 		}
-
+		
+		for(int i = 0 ; i<filmList.size(); i++)
+		{
+			System.out.println(filmList.get(0));
+		}
 		
 	}
 
