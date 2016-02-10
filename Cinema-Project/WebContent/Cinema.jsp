@@ -1,4 +1,3 @@
-<%@page import="com.matteo.cinema.model.Film"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="com.matteo.cinema.model.Film"%>
@@ -9,14 +8,28 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script type="text/javascript"
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>
-<script type="text/javascript" src="js/cinema.js">
-	
+	src="/Cinema-Project/js/jquery-1.8.3.js"></script>
+<script type="text/javascript" src="/Cinema-Project/js/cinema.js">
 </script>
+<script type="text/javascript" src="/Cinema-Project/js/jquery-ui.js">
+</script>
+<link rel="stylesheet" href="/Cinema-Project/css/jquery-ui-1.9.2.custom.css">
+<link rel="stylesheet" href="/Cinema-Project/css/Cinema.css">
 <link rel="stylesheet"
-	href="<%=request.getContextPath()%>/css/Cinema.css">
+	href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script type="text/javascript">
+/* function prova(){
+	var value = $(this).data("val");
+} */
+$(".sendData").click(function(){
+	var value = $(this).data("val");
+	
+});
+</script>
 <title>Cinema Jsp</title>
 </head>
+
+<c:set var="servletPath" value="${pageContext.request.contextPath}/Cinema-Project" />
 <body>
 	<div id="menu">
 		<img
@@ -24,8 +37,9 @@
 			title="logo_cinema" width="100 px">
 
 		<h2 class="trigger">
-			<a href="#">Show List Film</a>
+			<a href="#">Show Available Film List</a>
 		</h2>
+
 
 		<div class="container">
 			<h3>Title</h3>
@@ -36,8 +50,19 @@
 					for (int i = 0; i < cinema.size(); i++) {
 				%>
 				<tr>
+					<!-- <form action=/Cinema-Project target=_blank method="post"> -->
 					<td><%=cinema.get(i).getId()%></td>
-					<td><a href="<%=cinema.get(i).getLink()%>"><%=cinema.get(i).getTitle()%></a></td>
+					<td><a href="<%=cinema.get(i).getLink()%>" target="_blank"><%=cinema.get(i).getTitle()%></a>
+					<img class ="buy" 
+					src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
+					width="20px" 
+					onclick="javascript:sendData()"
+					title ="buy ticket">
+					<a data-val = "<%= cinema.get(i).getId() %>" class="sendData"> </a></td>
+					
+				
+										
+					</td>
 				</tr>
 				<%
 					}
@@ -46,7 +71,21 @@
 
 			</table>
 		</div>
-	</div>
 
+	</div>
+	<div>
+	
+		
+		<p>
+			Date: <input type="text" id="datepicker">
+		</p>
+
+
+	</div>
+	<form id="submitPageNumber"
+		action="<%=request.getContextPath() + request.getServletPath()%>"
+		method="post">
+		<input id="pageNumber" name="pageNumber" type="hidden" value="">
+	</form>
 </body>
 </html>

@@ -12,4 +12,13 @@ $(document).ready(function(){
 		$(this).next(".container").toggle();
 	});
 
-});
+	$(function() {
+	    $( "#datepicker" ).datepicker();
+	  });
+	
+	});
+
+function sendData(){
+	var value = document.querySelectorAll(".valueID");
+	
+}

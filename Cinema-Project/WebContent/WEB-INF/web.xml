@@ -12,4 +12,5 @@
      <servlet-name>Cinema Servlet</servlet-name>
      <url-pattern>/Cinema-Project</url-pattern> 
   </servlet-mapping>
+  
 </web-app>
