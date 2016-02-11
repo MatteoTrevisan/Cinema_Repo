@@ -72,7 +72,12 @@ public class CinemaServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
-		
+		PrintWriter out = response.getWriter();
+		int id = Integer.parseInt(request.getParameter("filmId"));
+		String Fabio= "Ciao Fabio";
+		String Antonio= "Ciao Antonio";
+		if(id==1){out.println(Fabio);}
+		else{out.println(Fabio);}
 	}
 
 }

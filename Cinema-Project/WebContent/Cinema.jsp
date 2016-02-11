@@ -18,13 +18,12 @@
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script type="text/javascript">
-/* function prova(){
-	var value = $(this).data("val");
-} */
-$(".sendData").click(function(){
-	var value = $(this).data("val");
-	
-});
+
+function sendData(event){
+	var value = $(event.currentTarget).data("id");
+	$("#inputId").val(value);
+	$("#subId").submit();
+}
 </script>
 <title>Cinema Jsp</title>
 </head>
@@ -50,19 +49,16 @@ $(".sendData").click(function(){
 					for (int i = 0; i < cinema.size(); i++) {
 				%>
 				<tr>
-					<!-- <form action=/Cinema-Project target=_blank method="post"> -->
 					<td><%=cinema.get(i).getId()%></td>
-					<td><a href="<%=cinema.get(i).getLink()%>" target="_blank"><%=cinema.get(i).getTitle()%></a>
-					<img class ="buy" 
-					src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
+					<td><a target="_blank"  href="<%=cinema.get(i).getLink()%>"><%=cinema.get(i).getTitle()%></a></td>
+					<td><a class ="buy" "><img onclick="javascript:sendData(event)" data-id="<%=cinema.get(i).getId()%>" src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
 					width="20px" 
-					onclick="javascript:sendData()"
 					title ="buy ticket">
-					<a data-val = "<%= cinema.get(i).getId() %>" class="sendData"> </a></td>
+					</a>
+					</td>
 					
 				
-										
-					</td>
+	
 				</tr>
 				<%
 					}
@@ -82,10 +78,10 @@ $(".sendData").click(function(){
 
 
 	</div>
-	<form id="submitPageNumber"
-		action="<%=request.getContextPath() + request.getServletPath()%>"
+	<form id="subId"
+		action="${servletPath}"
 		method="post">
-		<input id="pageNumber" name="pageNumber" type="hidden" value="">
+		<input id="inputId" name="filmId" type="hidden" value="">
 	</form>
 </body>
 </html>
