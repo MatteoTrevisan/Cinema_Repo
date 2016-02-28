@@ -17,18 +17,11 @@
 <link rel="stylesheet" href="/Cinema-Project/css/Cinema.css">
 <link rel="stylesheet"
 	href="https://fonts.googleapis.com/icon?family=Material+Icons">
-<script type="text/javascript">
 
-function sendData(event){
-	var value = $(event.currentTarget).data("id");
-	$("#inputId").val(value);
-	$("#subId").submit();
-}
-</script>
 <title>Cinema Jsp</title>
 </head>
 
-<c:set var="servletPath" value="${pageContext.request.contextPath}/Cinema-Project" />
+<c:set var="servletPath" value="${pageContext.request.contextPath}" />
 <body>
 	<div id="menu">
 		<img
@@ -49,16 +42,13 @@ function sendData(event){
 					for (int i = 0; i < cinema.size(); i++) {
 				%>
 				<tr>
-					<td><%=cinema.get(i).getId()%></td>
+					<td><%=cinema.get(i).getFilmId()%></td>
 					<td><a target="_blank"  href="<%=cinema.get(i).getLink()%>"><%=cinema.get(i).getTitle()%></a></td>
-					<td><a class ="buy" "><img onclick="javascript:sendData(event)" data-id="<%=cinema.get(i).getId()%>" src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
+					<td><a class ="buy" "><img onclick="javascript:sendData(event)" data-id="<%=cinema.get(i).getFilmId()%>" src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
 					width="20px" 
 					title ="buy ticket">
 					</a>
 					</td>
-					
-				
-	
 				</tr>
 				<%
 					}
@@ -69,7 +59,7 @@ function sendData(event){
 		</div>
 
 	</div>
-	<div>
+	<!-- <div>
 	
 		
 		<p>
@@ -77,7 +67,7 @@ function sendData(event){
 		</p>
 
 
-	</div>
+	</div> -->
 	<form id="subId"
 		action="${servletPath}"
 		method="post">

@@ -22,3 +22,9 @@ function sendData(){
 	var value = document.querySelectorAll(".valueID");
 	
 }
+
+function sendData(event){
+	var value = $(event.currentTarget).data("id");
+	$("#inputId").val(value);
+	$("#subId").submit();
+}
