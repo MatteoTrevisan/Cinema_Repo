@@ -4,42 +4,65 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="/Cinema-Project/js/jquery-1.8.3.js"></script>
 <script type="text/javascript" src="/Cinema-Project/js/jquery.validate.js"></script>
 <script type="text/javascript" src="/Cinema-Project/js/inputControl.js"></script>
+<script type="text/javascript" src="/Cinema-Project/js/cinema.js"></script>
+<!-- <script type="text/javascript" src="/Cinema-Project/js/controlliEs2.js"></script> -->
+
 <title>Insert title here</title>
 </head>
 <body>
 	<center>
 		<h2>Welcome to purchase Ticket page</h2>
 		<h3>choose the available dates for this film:</h3>
-		
-			<%String name = (String) request.getAttribute("name"); %>
-	
-				<center>Title <input type="text" readonly value="<%=name%>"></center><br>
-				<center>Avaible Dates <select name="filmDates">
-						<%
+
+		<%
+			String name = (String) request.getAttribute("name");
+			/* request.setAttribute("name", name); */
+		%>
+
+		<center>
+			Title <input type="text" readonly value="<%=name%>">
+		</center>
+		<br>
+		<center>
+			Avaible Dates <select name="filmDates">
+				<%
 					String[] dates = (String[]) request.getAttribute("dates");
-					
+
 					for (int i = 0; i < dates.length; i++) {
 				%>
-						<option value=""><%=dates[i]%></option>
-						<%
+				<option class="date" value=""><%=dates[i]%></option>
+				<%
 					}
 				%>
-				</select>
+			</select>
 		</center>
 		<h3>Please enter your data</h3>
-		<form name = "buyTicketForm" id="buyTicketForm">
-		Name: <input type="text" name="inputName"><br><br>
-		Surname: <input type="text" name="inputSurName"><br><br>
-		Email: <input type="text" name="inputEmail"><br><br>
-		<select name="methodOfPayment">
-		<option selected="selected">Paypal</option>
-		<option>CreditCard</option>
-		</select>
-		</form>
-		<br><input type="button" value="Buy Ticket" onclick="buyTicket()">
-	</center>
-	
+		<form id="modulo" method="post"
+			action="/Cinema-Project/SummaryPurchasePage.jsp">
+			<div>
+				<span>Name</span><br> <input type="text" id="nome" name="nome">
+			</div>
+			<div>
+				<span>Surname</span><br> <input type="text" id="cognome"
+					name="cognome">
+			</div>
+			<div>
+				<span>Email</span><br> <input type="text" id="email"
+					name="email">
+			</div>
+			<div>
+				Payment method: <select name="methodOfPayment">
+					<option selected="selected">Paypal</option>
+					<option>CreditCard</option>
+				</select>name
+			</div>
+			<input id="filmNameInfo" name="filmName" type="hidden" value="<%=name%>" >
+			<input id="userName" name="userName" type="hidden" value="" >
+			<input type="submit" value="Invia i dati" onclick="summaryData()">
+			</form>
+</center>
 </body>
 </html>

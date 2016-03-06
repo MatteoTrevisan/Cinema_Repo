@@ -10,21 +10,29 @@ $(document).ready(function(){
 	
 	$("h2.trigger").click(function(){
 		$(this).next(".container").toggle();
-	});
-
-	$(function() {
-	    $( "#datepicker" ).datepicker();
-	  });
+	});	
 	
 	});
-
-function sendData(){
-	var value = document.querySelectorAll(".valueID");
-	
-}
 
 function sendData(event){
 	var value = $(event.currentTarget).data("id");
 	$("#inputId").val(value);
 	$("#subId").submit();
 }
+
+function summaryData(){
+	var userName = document.getElementById("nome").value;
+	$("#userName").val(userName);
+	("#subSummaryInfo").submit();
+//	var userSurname = document.getElementById("cognome").value;
+//	var userEmail = document.getElementById("email").value;
+//	$("#filmInfo").val(userName);
+//	$("#subSummaryInfo").submit();
+}
+
+//function prova(){
+//	var userName = document.getElementById("nome").value;
+//	$("#userName").val(userName);
+//	("#subSummaryInfo").submit();
+////	
+//}
