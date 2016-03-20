@@ -15,14 +15,19 @@ $(document).ready(function(){
 	});
 
 function sendData(event){
-	var value = $(event.currentTarget).data("id");
-	$("#inputId").val(value);
+	var valueId = $(event.currentTarget).data("id");
+	var valuePrice = $(event.currentTarget).data("price");
+	$("#inputId").val(valueId);
+	$("#filmPrice").val(valuePrice);
 	$("#subId").submit();
 }
 
 function summaryData(){
 	var userName = document.getElementById("nome").value;
+	var userSurname = document.getElementById("cognome").value;
 	$("#userName").val(userName);
+	$("#userSurname").val(userSurname);
+	
 	("#subSummaryInfo").submit();
 //	var userSurname = document.getElementById("cognome").value;
 //	var userEmail = document.getElementById("email").value;

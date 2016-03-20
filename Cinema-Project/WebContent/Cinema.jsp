@@ -44,7 +44,7 @@
 				<tr>
 					<td><%=cinema.get(i).getFilmId()%></td>
 					<td><a target="_blank"  href="<%=cinema.get(i).getLink()%>"><%=cinema.get(i).getTitle()%></a></td>
-					<td><a class ="buy" "><img onclick="javascript:sendData(event)" data-id="<%=cinema.get(i).getFilmId()%>" src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
+					<td><a class ="buy" "><img onclick="javascript:sendData(event)" data-id=<%=cinema.get(i).getFilmId()%> data-price=<%=cinema.get(i).getPrice() %> src="http://uxrepo.com/static/icon-sets/typicons/svg/basket.svg" 
 					width="20px" 
 					title ="buy ticket">
 					</a>
@@ -72,6 +72,8 @@
 		action="${servletPath}"
 		method="post">
 		<input id="inputId" name="filmId" type="hidden" value="">
+		<input id="filmPrice" name="filmPrice" type="hidden" value="">
 	</form>
+	
 </body>
 </html>

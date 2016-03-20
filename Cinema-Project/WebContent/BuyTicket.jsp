@@ -19,11 +19,13 @@
 
 		<%
 			String name = (String) request.getAttribute("name");
+			String price = (String) request.getAttribute("price");
 			/* request.setAttribute("name", name); */
 		%>
 
 		<center>
 			Title <input type="text" readonly value="<%=name%>">
+				<input type="hidden" value="<%=price%>">
 		</center>
 		<br>
 		<center>
@@ -59,8 +61,10 @@
 					<option>CreditCard</option>
 				</select>name
 			</div>
-			<input id="filmNameInfo" name="filmName" type="hidden" value="<%=name%>" >
+			<input id="filmNameInfo" name="filmName" type="hidden" value="<%=name%>" >	
 			<input id="userName" name="userName" type="hidden" value="" >
+			<input id="userSurname" name="userSurname" type="hidden" value="" >
+			<input id="filmPrice" name="filmPrice" type="hidden" value="<%=price%>" >
 			<input type="submit" value="Invia i dati" onclick="summaryData()">
 			</form>
 </center>

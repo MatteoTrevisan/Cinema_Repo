@@ -1,5 +1,5 @@
-1,La Bella e La Bestia, 17€, https://www.youtube.com/watch?v=OqrVWzCuAqA
-2,Asterix e Obelix, 10€, https://www.youtube.com/watch?v=RaGA8fDhvEQ
-3,Cenerentola, 12€, https://www.youtube.com/watch?v=uPARjcBLi6w
-4,Pinocchio, 14€, https://www.youtube.com/watch?v=lI76QzFsycg 
-5,Il Libro della Giungla, 10€, https://www.youtube.com/watch?v=fFUx9cA9ZGI  
+1,La Bella e La Bestia, 17, https://www.youtube.com/watch?v=OqrVWzCuAqA
+2,Asterix e Obelix, 10, https://www.youtube.com/watch?v=RaGA8fDhvEQ
+3,Cenerentola, 12, https://www.youtube.com/watch?v=uPARjcBLi6w
+4,Pinocchio, 14, https://www.youtube.com/watch?v=lI76QzFsycg 
+5,Il Libro della Giungla, 10, https://www.youtube.com/watch?v=fFUx9cA9ZGI  
